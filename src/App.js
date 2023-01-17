@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Overview from './components/Overview';
 import Education from './components/Education';
+import Work from './components/Work';
 import './App.css';
 
 class App extends Component {
@@ -150,6 +151,63 @@ handleDateChange = (e) => {
 };
 
 
+handleCompanyChange = (e) => {
+
+  this.setState({
+
+    companyName : {
+
+      text: e.target.value,
+      
+
+    }
+
+  });
+};
+
+handlePositionChange = (e) => {
+
+  this.setState({
+
+    position : {
+
+      text: e.target.value,
+      
+
+    }
+
+  });
+};
+
+handleJobTasksChange = (e) => {
+
+  this.setState({
+
+    jobTasks : {
+
+      text: e.target.value,
+      
+
+    }
+
+  });
+};
+
+handleWorkedDatesChange = (e) => {
+
+  this.setState({
+
+    workedDates : {
+
+      text: e.target.value,
+      
+
+    }
+
+  });
+};
+
+
 onSubmitTask = (e) => {
 
 
@@ -160,10 +218,11 @@ onSubmitTask = (e) => {
     background: this.state.background.concat(this.state.info, this.state.moreInfo,
       this.state.evenMoreInfo),
     
-      education: this.state.education.concat(this.state.schoolName, this.state.studied,
+    education: this.state.education.concat(this.state.schoolName, this.state.studied,
         this.state.date),
       
-    
+    job: this.state.job.concat(this.state.companyName, this.state.position, 
+      this.state.jobTasks, this.state.workedDates),
     
     
     info: {text: ''},
@@ -178,6 +237,15 @@ onSubmitTask = (e) => {
     studied: {text: ''},
   
     date: {text: ''},
+
+
+    companyName: {text: ''},
+
+    position: {text: ''},
+
+    jobTasks: {text: ''},
+
+    workedDates: {text: ''}
   
 
 
@@ -198,7 +266,8 @@ onSubmitTask = (e) => {
 
   render(){
 
-    const {info, moreInfo, evenMoreInfo, schoolName, studied, date, background, education} = this.state;
+    const {info, moreInfo, evenMoreInfo, schoolName, studied, date, companyName, position, jobTasks, 
+      workedDates, background, education, job} = this.state;
 
 
   return (
@@ -243,15 +312,39 @@ onSubmitTask = (e) => {
 
      <input onChange = {this.handleDateChange} value = {date.text} type = "text" id = "dateInput"/>
 
+     <br />
+
+     <h1>Work Experience</h1>
 
 
+     <label htmlFor="companyNameInput"> Company Name </label>
+
+     <input onChange = {this.handleCompanyChange} value = {companyName.text} type = "text" id = "companyNameInput"/>
+
+     <label htmlFor="positionInput"> Position </label>
+
+     <input onChange = {this.handlePositionChange} value = {position.text} type = "text" id = "positionInput"/>
 
 
+     <label htmlFor="jobTasksInput"> Job Tasks </label>
+
+     <input onChange = {this.handleJobTasksChange} value = {jobTasks.text} type = "text" id = "jobTasksInput"/>
 
 
+     <label htmlFor="workedDatesInput"> Worked Dates </label>
+
+     <input onChange = {this.handleWorkedDatesChange} value = {workedDates.text} type = "text" id = "workedDatesInput"/>
+
+
+     <br />
+     <br />
+     <br />
+
+
+ 
       <button type = "submit">
 
-        Add info
+       Submit
 
       </button>
 
@@ -259,10 +352,11 @@ onSubmitTask = (e) => {
 
     <Overview background = {background} />
     <Education education = {education} />
+    <Work work = {job} />
 
     </div>
 
-    <br />
+
 
 
     </div>
