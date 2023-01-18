@@ -11,7 +11,7 @@ const Work = (props) => {
 
             {work.map((task) => {
 
-                return <li>{task.text}</li>;
+                return <li key = {task.id}>{task.text}</li>;
 
             })}
         </ul>

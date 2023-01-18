@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Overview from './components/Overview';
 import Education from './components/Education';
 import Work from './components/Work';
+import uniqid from "uniqid";
 import './App.css';
 
 class App extends Component {
@@ -14,27 +15,27 @@ constructor(){
 
   this.state = {
 
-    info: {text: ''},
+    info: {text: '', id: uniqid()},
 
-    moreInfo: {text: ''},
+    moreInfo: {text: '', id: uniqid()},
 
-    evenMoreInfo: {text: ''},
+    evenMoreInfo: {text: '', id: uniqid()},
 
-    evenEvenMoreInfo: {text: ''},
+    evenEvenMoreInfo: {text: '', id: uniqid()},
 
-    schoolName: {text: ''},
+    schoolName: {text: '', id: uniqid()},
 
-    studied: {text: ''},
+    studied: {text: '', id: uniqid()},
 
-    date: {text: ''},
+    date: {text: '', id: uniqid()},
 
-    companyName: {text: ''},
+    companyName: {text: '', id: uniqid()},
 
-    position: {text: ''},
+    position: {text: '', id: uniqid()},
 
-    jobTasks: {text: ''},
+    jobTasks: {text: '', id: uniqid()},
 
-    workedDates: {text: ''},
+    workedDates: {text: '', id: uniqid()},
 
 
 
@@ -56,7 +57,7 @@ handleInfoChange = (e) => {
     info : {
 
       text: e.target.value,
-      
+      id: this.state.info.id
 
     }
 
@@ -71,6 +72,7 @@ handleMoreInfoChange = (e) => {
     moreInfo : {
 
       text: e.target.value,
+      id: this.state.moreInfo.id
       
 
     }
@@ -85,6 +87,7 @@ handleEvenMoreInfoChange = (e) => {
     evenMoreInfo : {
 
       text: e.target.value,
+      id: this.state.evenMoreInfo.id
       
 
     }
@@ -99,6 +102,7 @@ handleEvenEvenMoreInfoChange = (e) => {
     evenEvenMoreInfo : {
 
       text: e.target.value,
+      id: this.state.evenEvenMoreInfo.id
       
 
     }
@@ -113,7 +117,7 @@ handleSchoolChange = (e) => {
     schoolName : {
 
       text: e.target.value,
-      
+      id: this.state.schoolName.id
 
     }
 
@@ -128,7 +132,7 @@ handleStudiedChange = (e) => {
     studied : {
 
       text: e.target.value,
-      
+      id: this.state.studied.id
 
     }
 
@@ -143,7 +147,7 @@ handleDateChange = (e) => {
     date : {
 
       text: e.target.value,
-      
+      id: this.state.date.id
 
     }
 
@@ -158,7 +162,7 @@ handleCompanyChange = (e) => {
     companyName : {
 
       text: e.target.value,
-      
+      id: this.state.companyName.id
 
     }
 
@@ -172,7 +176,7 @@ handlePositionChange = (e) => {
     position : {
 
       text: e.target.value,
-      
+      id: this.state.position.id
 
     }
 
@@ -186,7 +190,8 @@ handleJobTasksChange = (e) => {
     jobTasks : {
 
       text: e.target.value,
-      
+      id: this.state.jobTasks.id
+
 
     }
 
@@ -200,7 +205,8 @@ handleWorkedDatesChange = (e) => {
     workedDates : {
 
       text: e.target.value,
-      
+      id: this.state.workedDates.id
+
 
     }
 
@@ -225,27 +231,27 @@ onSubmitTask = (e) => {
       this.state.jobTasks, this.state.workedDates),
     
     
-    info: {text: ''},
+    info: {text: '', id: uniqid()},
 
-    moreInfo: {text: ''},
+    moreInfo: {text: '', id: uniqid()},
 
-    evenMoreInfo: {text: ''},
+    evenMoreInfo: {text: '', id: uniqid()},
 
     
-    schoolName: {text: ''},
+    schoolName: {text: '', id: uniqid()},
   
-    studied: {text: ''},
+    studied: {text: '', id: uniqid()},
   
-    date: {text: ''},
+    date: {text: '', id: uniqid()},
 
 
-    companyName: {text: ''},
+    companyName: {text: '', id: uniqid()},
 
-    position: {text: ''},
+    position: {text: '', id: uniqid()},
 
-    jobTasks: {text: ''},
+    jobTasks: {text: '', id: uniqid()},
 
-    workedDates: {text: ''}
+    workedDates: {text: '', id: uniqid()}
   
 
 
@@ -349,10 +355,13 @@ onSubmitTask = (e) => {
       </button>
 
     </form>
-
+    
+    
+    
     <Overview background = {background} />
     <Education education = {education} />
     <Work work = {job} />
+    
 
     </div>
 

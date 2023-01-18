@@ -11,7 +11,7 @@ const Education = (props) => {
 
             {education.map((studies) => {
 
-                return <li>{studies.text}</li>;
+                return <li key = {studies.id}>{studies.text}</li>;
 
             })}
         </ul>

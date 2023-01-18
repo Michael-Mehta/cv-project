@@ -11,7 +11,7 @@ const Overview = (props) => {
 
             {background.map((info) => {
 
-                return <li>{info.text}</li>;
+                return <li key = {info.id}>{info.text}</li>;
 
             })}
         </ul>
