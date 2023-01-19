@@ -213,6 +213,225 @@ handleWorkedDatesChange = (e) => {
   });
 };
 
+handleEdit = (background, id) => {
+
+  
+ 
+  const editGeneral = background.find((i)=> i.id === id);
+
+  
+
+    if(editGeneral.id === background[0].id)
+    {
+      this.handleInfoEdit(background,id);
+    }
+
+    if(editGeneral.id === background[1].id)
+    {
+      this.handleMoreInfoEdit(background,id);
+    }
+
+    if(editGeneral.id === background[2].id)
+    {
+      this.handleEvenMoreInfoEdit(background,id);
+    }
+
+};
+
+handleEducationEdit = (education, id) => {
+
+  
+ 
+  const editGeneral = education.find((i)=> i.id === id);
+
+  
+
+    if(editGeneral.id === education[0].id)
+    {
+      this.handleSchoolNameEdit(education,id);
+    }
+
+    if(editGeneral.id === education[1].id)
+    {
+      this.handleStudiedEdit(education,id);
+    }
+
+    if(editGeneral.id === education[2].id)
+    {
+      this.handleDateEdit(education, id);
+    }
+
+};
+
+
+handleWorkEdit = (job, id) => {
+
+  
+ 
+  const editGeneral = job.find((i)=> i.id === id);
+
+  
+
+    if(editGeneral.id === job[0].id)
+    {
+      this.handleCompanyNameEdit(job,id);
+    }
+
+    if(editGeneral.id === job[1].id)
+    {
+      this.handlePositionEdit(job,id);
+    }
+
+    if(editGeneral.id === job[2].id)
+    {
+      this.handleJobTasksEdit(job,id);
+    }
+
+    if(editGeneral.id === job[3].id)
+    {
+      this.handleWorkedDatesEdit(job,id);
+    }
+
+};
+
+
+
+handleInfoEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      info: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+  handleMoreInfoEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      moreInfo: {text: `${editGeneral.text}`}
+
+    });
+
+    console.log(background[0]);
+ 
+  };
+
+  handleEvenMoreInfoEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      evenMoreInfo: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+  handleSchoolNameEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      schoolName: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+
+  handleStudiedEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      studied: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+
+  handleDateEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      date: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+  handleCompanyNameEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      companyName: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+  handlePositionEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      position: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+  handleJobTasksEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      jobTasks: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+
+  handleWorkedDatesEdit = (background, id) => {
+
+ 
+    const editGeneral = background.find((i)=> i.id === id);
+
+      this.setState({
+
+      workedDates: {text: `${editGeneral.text}`}
+
+    });
+ 
+  };
+
+
 
 onSubmitTask = (e) => {
 
@@ -358,9 +577,16 @@ onSubmitTask = (e) => {
     
     
     
-    <Overview background = {background} />
-    <Education education = {education} />
-    <Work work = {job} />
+    <Overview background = {background}
+     handleEdit = {this.handleEdit}
+    
+    />
+    <Education education = {education}
+    handleEdit = {this.handleEducationEdit}
+    />
+    <Work work = {job}
+    handleEdit = {this.handleWorkEdit}
+    />
     
 
     </div>

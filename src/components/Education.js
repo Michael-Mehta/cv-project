@@ -1,20 +1,21 @@
 import React from "react";
 
 
-const Education = (props) => {
+const Education = ({education, handleEdit}) => {
 
-    const {education} = props;
-
+    
     return (
 
-        <ul>
+    <ul>
 
-            {education.map((studies) => {
+ {education.map((studies) => {
 
-                return <li key = {studies.id}>{studies.text}</li>;
-
-            })}
-        </ul>
+        return <li key = {studies.id}><span>{studies.text}</span> 
+                
+        <button onClick={() => handleEdit(education, studies.id)}>Edit</button>
+          </li>;
+ })}
+    </ul>
        
 
     );

@@ -1,17 +1,28 @@
 import React from "react";
 
 
-const Overview = (props) => {
+const Overview = ({background,handleEdit}) => {
 
-    const {background} = props;
+    
 
     return (
 
         <ul>
 
+
             {background.map((info) => {
 
-                return <li key = {info.id}>{info.text}</li>;
+              
+            
+
+                return <li key = {info.id}><span>{info.text}</span> 
+    
+                <button onClick={() => handleEdit(background, info.id)}>Edit</button>
+            
+                  
+            
+
+              </li>;
 
             })}
         </ul>

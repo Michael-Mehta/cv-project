@@ -1,19 +1,23 @@
 import React from "react";
 
 
-const Work = (props) => {
+const Work = ({work, handleEdit} ) => {
 
-    const {work} = props;
+
 
     return (
 
         <ul>
 
-            {work.map((task) => {
+ {work.map((task) => {
 
-                return <li key = {task.id}>{task.text}</li>;
+       return <li key = {task.id}><span>{task.text}</span> 
+                
+       <button onClick={() => handleEdit(work, task.id)}>Edit</button>
+       </li>;
 
-            })}
+     })}
+
         </ul>
        
 
