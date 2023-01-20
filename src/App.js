@@ -12,6 +12,7 @@ constructor(){
 
   super();
 
+  
 
   this.state = {
 
@@ -37,13 +38,16 @@ constructor(){
 
     workedDates: {text: '', id: uniqid()},
 
+    
 
 
     background: [],
 
     education: [],
 
-    job: []
+    job: [],
+
+    editId: 0
     
 
   };
@@ -234,8 +238,13 @@ handleEdit = (background, id) => {
     if(editGeneral.id === background[2].id)
     {
       this.handleEvenMoreInfoEdit(background,id);
+
+
     }
 
+    this.setState({ editId: id }, () => {
+  console.log(this.state.editId);
+}); 
 };
 
 handleEducationEdit = (education, id) => {
@@ -569,7 +578,9 @@ onSubmitTask = (e) => {
  
       <button type = "submit">
 
-       Submit
+        
+
+       {this.editId? "Update" : "Submit"}
 
       </button>
 
