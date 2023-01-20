@@ -580,7 +580,7 @@ onSubmitTask = (e) => {
 
         
 
-       {this.editId? "Update" : "Submit"}
+       {this.state.editId? "Update" : "Submit"}
 
       </button>
 
