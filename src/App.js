@@ -447,6 +447,50 @@ onSubmitTask = (e) => {
 
   e.preventDefault();
 
+
+  if(this.state.editId){
+    
+    console.log(this.state.editId);
+
+    const editTodo = this.state.background.find((i) => i.id === this.state.editId);
+
+    console.log(editTodo);
+    console.log("in function");
+
+
+
+   
+  
+
+          this.state.background.map((t) => {
+        if(t.id === editTodo.id)
+        {
+          console.log(t);
+
+           t.text = this.state.info.text;
+          
+          console.log(t);
+           
+        }
+      }
+        )
+ 
+        
+    
+        this.setState({
+          
+      editId: 0,
+      info: { text: ""}
+    });
+
+    
+
+    console.log(this.state.background);
+    
+
+    return;
+  }
+
   this.setState({
 
     background: this.state.background.concat(this.state.info, this.state.moreInfo,
