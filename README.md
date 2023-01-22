@@ -1,1 +1,1 @@
-In App.js <Work job = {job} /> gives an error with the map function in Work.js while <Work work = {job} /> works fine
+Can only edit/update one input at a time otherwise it won't work properly

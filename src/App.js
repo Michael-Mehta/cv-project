@@ -3,6 +3,8 @@ import Overview from './components/Overview';
 import Education from './components/Education';
 import Work from './components/Work';
 import uniqid from "uniqid";
+import { useRef } from 'react';
+
 import './App.css';
 
 class App extends Component {
@@ -270,6 +272,10 @@ handleEducationEdit = (education, id) => {
       this.handleDateEdit(education, id);
     }
 
+    this.setState({ editId: id }, () => {
+      console.log(this.state.editId);
+    }); 
+
 };
 
 
@@ -300,6 +306,10 @@ handleWorkEdit = (job, id) => {
     {
       this.handleWorkedDatesEdit(job,id);
     }
+
+    this.setState({ editId: id }, () => {
+      console.log(this.state.editId);
+    }); 
 
 };
 
@@ -448,32 +458,120 @@ onSubmitTask = (e) => {
   e.preventDefault();
 
 
+
+
+  
+  
+  
+
   if(this.state.editId){
+
+
     
-    console.log(this.state.editId);
+    
 
-    const editTodo = this.state.background.find((i) => i.id === this.state.editId);
+    const editBackground = this.state.background.find((i) => i.id === this.state.editId);
 
-    console.log(editTodo);
-    console.log("in function");
+    const editEducation = this.state.education.find((i) => i.id === this.state.editId);
+
+    const editJob = this.state.job.find((i) => i.id === this.state.editId);
+
+    
+    
 
 
 
-   
+   if(editBackground)
+   {
   
 
           this.state.background.map((t) => {
-        if(t.id === editTodo.id)
+        if(t.id === editBackground.id)
         {
           console.log(t);
 
+          if(this.state.info.text != "")
+           {
            t.text = this.state.info.text;
+           }
+          if(this.state.moreInfo.text != "")
+           {
+           t.text = this.state.moreInfo.text;
+           }
+          if(this.state.evenMoreInfo.text != "")
+           {
+           t.text = this.state.evenMoreInfo.text;
+           }
+           
           
           console.log(t);
+          
            
         }
       }
         )
+    }
+
+    if(editEducation)
+    {
+
+        this.state.education.map((t) => {
+          if(t.id === editEducation.id)
+          {
+            console.log(t);
+  
+            if(this.state.schoolName.text != "")
+            {
+            t.text = this.state.schoolName.text;
+            }
+           if(this.state.studied.text != "")
+            {
+            t.text = this.state.studied.text;
+            }
+           if(this.state.date.text != "")
+            {
+            t.text = this.state.date.text;
+            }
+            
+            console.log(t);
+             
+          }
+        }
+          )
+      }
+
+      if(editJob)
+      {
+
+          this.state.job.map((t) => {
+            if(t.id === editJob.id)
+            {
+              console.log(t);
+    
+              if(this.state.companyName.text != "")
+            {
+            t.text = this.state.companyName.text;
+            }
+           if(this.state.position.text != "")
+            {
+            t.text = this.state.position.text;
+            }
+           if(this.state.jobTasks.text != "")
+            {
+            t.text = this.state.jobTasks.text;
+            }
+            if(this.state.workedDates.text != "")
+            {
+            t.text = this.state.workedDates.text;
+            }
+
+              
+              console.log(t);
+               
+            }
+          }
+            )
+        }
  
         
     
@@ -485,10 +583,44 @@ onSubmitTask = (e) => {
 
     
 
-    console.log(this.state.background);
+    this.setState({
+
+      info: {text: '', id: uniqid()},
+
+    moreInfo: {text: '', id: uniqid()},
+
+    evenMoreInfo: {text: '', id: uniqid()},
+
+    
+    schoolName: {text: '', id: uniqid()},
+  
+    studied: {text: '', id: uniqid()},
+  
+    date: {text: '', id: uniqid()},
+
+
+    companyName: {text: '', id: uniqid()},
+
+    position: {text: '', id: uniqid()},
+
+    jobTasks: {text: '', id: uniqid()},
+
+    workedDates: {text: '', id: uniqid()}
+  
+
+
+
+    
+
+  });
+    
+
+
+
     
 
     return;
+  
   }
 
   this.setState({
